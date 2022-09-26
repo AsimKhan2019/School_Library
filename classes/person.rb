@@ -8,7 +8,7 @@ class Person
     @age = age
     @parents_permission = parents_permission
   end
-  
+
   def can_use_service?
     of_age? || @parents_permission
   end
@@ -18,5 +18,4 @@ class Person
   def of_age?
     @age >= 18
   end
-
 end
