@@ -42,7 +42,7 @@ class App
       student.name = name
       @students << student
       puts "#{student.name} added successfully!!"
-    
+   
     when 2
       puts 'Enter in your Age:'
       age = gets.chomp.to_i
