@@ -37,12 +37,11 @@ class App
       puts 'Enter in your Classroom:'
       classroom = gets.chomp
       puts 'Do you have parents permission [Y/N]'
-      permission = gets.chomp.downcase
       student = Student.new(age, classroom)
       student.name = name
       @students << student
       puts "#{student.name} added successfully!!"
-   
+
     when 2
       puts 'Enter in your Age:'
       age = gets.chomp.to_i
