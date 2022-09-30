@@ -36,7 +36,7 @@ class App
       name = gets.chomp
       puts 'Enter in your Classroom:'
       classroom = gets.chomp
-      puts 'Do you have parent's permission [Y/N]''
+      puts 'Do you have parents permission [Y/N]'
       permission = gets.chomp.downcase
       student = Student.new(age, classroom)
       student.name = name
@@ -54,46 +54,38 @@ class App
       @teachers << teacher
       puts "#{teacher.name} added successfully!!"
     end
+  end
 
-    def addbook
-      puts 'Enter in the Book title:'
-      title = gets.chomp
-      puts 'Enter in the Author name:'
-      author = gets.chomp
-      book = Book.new(author, title)
-      @books << book
-      puts "#{book.title} added successfully!!"
-    end
+  def addbook
+    puts 'Enter in the Book title:'
+    title = gets.chomp
+    puts 'Enter in the Author name:'
+    author = gets.chomp
+    book = Book.new(author, title)
+    @books << book
+    puts "#{book.title} added successfully!!"
+  end
 
-    def addrental
-      puts 'Select Book from the list:'
-      listallbooks
-      book_id = gets.chomp.to_i
-      puts 'Select Person from the list:'
-      listallpeople
-      person_id = gets.chomp.to_i
-      puts 'Select rental date:'
-      rentaldate = gets.chomp
-      people = [*@teachers, *@students]
-      rental = Rental.new(rentaldate, @books[book_id], people[person_id])
-      @rentals << rental
-      puts 'Book rental added successfully!!'
-    end
+  def addrental
+    puts 'Select Book from the list:'
+    listallbooks
+    book_id = gets.chomp.to_i
+    puts 'Select Person from the list:'
+    listallpeople
+    person_id = gets.chomp.to_i
+    puts 'Select rental date:'
+    rentaldate = gets.chomp
+    people = [*@teachers, *@students]
+    rental = Rental.new(rentaldate, @books[book_id], people[person_id])
+    @rentals << rental
+    puts 'Book rental added successfully!!'
+  end
 
-    def listallrentals
-      puts 'Enter in the Person ID:'
-      id = gets.chomp.to_i
-      puts id
-      # person = people.select { |p| p.id == id}[0]
-      # if person
-      #   @rentals.each { |rental| puts "Date: #{rental.date}, Title: #{rental.book.title}, Author: #{rental.book.author}"}
-      # else
-      #   puts "Try again!!!"
-      # end
-      @rentals.each do |i|
-        puts i.person.id
-        puts "Date: #{i.date}, Title: #{i.book.title}, Author: #{i.book.author}" if id == i.person.id
-      end
+  def listallrentals
+    puts 'Enter in the Person ID:'
+    id = gets.chomp.to_i
+    @rentals.each do |i|
+      puts "Date: #{i.date}, Title: #{i.book.title}, Author: #{i.book.author}" if id == i.person.id
     end
   end
 end
