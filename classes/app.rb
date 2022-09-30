@@ -69,22 +69,22 @@ class App
     puts 'Select Book from the list:'
     listallbooks
     book_id = gets.chomp.to_i
-    if !@books[book_id]
-      puts 'Enter in the correct book id and try again!!!'
-    else
+    if @books[book_id]
       puts 'Select Person from the list:'
       listallpeople
       people = [*@teachers, *@students]
       person_id = gets.chomp.to_i
-      if !people[person_id]
-        puts 'Enter in the correct person id and try again!!!'
-      else
+      if people[person_id]
         puts 'Select rental date:'
         rentaldate = gets.chomp
         rental = Rental.new(rentaldate, @books[book_id], people[person_id])
         @rentals << rental
         puts 'Book rental added successfully!!'
+      else
+        puts 'Enter in the correct person id and try again!!!'
       end
+    else
+      puts 'Enter in the correct book id and try again!!!'
     end
   end
 
