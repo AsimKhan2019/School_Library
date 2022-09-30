@@ -74,13 +74,13 @@ class App
     else
       puts 'Select Person from the list:'
       listallpeople
+      people = [*@teachers, *@students]
       person_id = gets.chomp.to_i
       if !people[person_id]
         puts 'Enter in the correct person id and try again!!!'
       else
         puts 'Select rental date:'
         rentaldate = gets.chomp
-        people = [*@teachers, *@students]
         rental = Rental.new(rentaldate, @books[book_id], people[person_id])
         @rentals << rental
         puts 'Book rental added successfully!!'
