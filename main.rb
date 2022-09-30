@@ -7,17 +7,17 @@ class Main
   end
 
   def menu
-    puts "Welcome to the School Library"
+    puts 'Welcome to the School Library'
 
     while @select != 7
-      puts "Please choose an option"
-      puts "1 - List all Books"
-      puts "2 - List all Persons"
-      puts "3 - Create a person (Student / Teacher)"
-      puts "4 - Create a Book"
-      puts "5 - Create a Rental"
-      puts "6 - List all Rentals"
-      puts "7 - Exit Program"
+      puts 'Please choose an option'
+      puts '1 - List all Books'
+      puts '2 - List all Persons'
+      puts '3 - Create a person (Student / Teacher)'
+      puts '4 - Create a Book'
+      puts '5 - Create a Rental'
+      puts '6 - List all Rentals'
+      puts '7 - Exit Program'
       console_start
     end
   end
@@ -27,17 +27,17 @@ class Main
 
     case @select
     when 1
-      @app.list_all_books
+      @app.listallbooks
     when 2
-      @app.list_all_people
+      @app.listallpeople
     when 3
-      @app.add_person
+      @app.addperson
     when 4
-      @app.add_book
+      @app.addbook
     when 5
-      @app.add_rental
+      @app.addrental
     when 6
-      @app.list_all_rentals
+      @app.listallrentals
     end
   end
 end
